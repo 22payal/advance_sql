@@ -47,8 +47,6 @@ To run the function :  SELECT calc_sal()  ;
      AFTER UPDATE  ON emp
      FOR EACH ROW
   BEGIN
-    
-   
     insert into transac values(NEW.ename ,'payal', NEW.sal,now()) ;
      END;
      //
