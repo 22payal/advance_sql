@@ -1,0 +1,163 @@
+Connecting database through terminal
+->mysql -u root -p
+->password
+
+for showing all the databases 
+show databases;
+
+for using a database 
+use databaseName
+
+for droping a database
+drop database databaseName
+
+for showing all the tables
+show tables
+
+for creating a database
+CREATE DATABASE sampledb;
+
+creating department table 
+create table dept(
+  deptno INTEGER(2),
+  dname  varchar(14),
+  loc    varchar(13),
+  constraint pk_dept primary key (deptno)
+);
+
+creating employee table
+
+create table emp(
+  empno    integer(4),
+  ename    varchar(10),
+  job      varchar(9),
+  mgr      integer(4),
+  hiredate date,
+  sal      DECIMAL(7,2),
+  comm     DECIMAL(7,2),
+  deptno   integer(2),
+  constraint pk_emp primary key (empno),
+  constraint fk_deptno foreign key (deptno) references dept (deptno)
+);
+
+creating EmployeeDetails table
+
+CREATE TABLE employeedetails(
+	empno int NULL,
+	Mobile varchar(10) NULL,
+	PresentAddress varchar(100) NULL,
+	Area varchar(50) NULL,
+	City varchar(50) NULL,
+	Country varchar(50) NULL,
+	Qualification varchar(50) NULL,
+	Email varchar(50) NULL
+) 
+
+//alter table to add foreign key 
+ALTER TABLE employeedetails ADD CONSTRAINT  FK_EmployeeDetails_Employee 
+    FOREIGN KEY(empno)
+REFERENCES emp (empno)
+
+
+insert into dept
+values(10, 'ACCOUNTING', 'NEW YORK');
+insert into dept
+values(20, 'RESEARCH', 'DALLAS');
+insert into dept
+values(30, 'SALES', 'CHICAGO');
+insert into dept
+values(40, 'OPERATIONS', 'BOSTON');
+
+
+	insert into emp values(7839, 'KING', 'PRESIDENT', null,'1981-11-17', 5000, null, 10);
+insert into emp
+values(
+ 7698, 'BLAKE', 'MANAGER', 7839,
+ '1981-5-1',
+ 2850, null, 30
+);
+insert into emp
+values(
+ 7782, 'CLARK', 'MANAGER', 7839,
+ '1981-6-9',
+ 2450, null, 10
+);
+insert into emp
+values(
+ 7566, 'JONES', 'MANAGER', 7839,
+ '1981-4-2',
+ 2975, null, 20
+);
+insert into emp
+values(
+ 7788, 'SCOTT', 'ANALYST', 7566,
+ '87-JUL-13',
+ 3000, null, 20
+);
+insert into emp
+values(
+ 7902, 'FORD', 'ANALYST', 7566,
+ '1981-12-3',
+ 3000, null, 20
+);
+insert into emp
+values(
+ 7369, 'SMITH', 'CLERK', 7902,
+ '1980-12-17',
+ 800, null, 20
+);
+insert into emp
+values(
+ 7499, 'ALLEN', 'SALESMAN', 7698,
+ '1981-2-20',
+ 1600, 300, 30
+);
+insert into emp
+values(
+ 7521, 'WARD', 'SALESMAN', 7698,
+ '1981-2-22',
+ 1250, 500, 30
+);
+insert into emp
+values(
+ 7654, 'MARTIN', 'SALESMAN', 7698,
+ '1981-9-28',
+ 1250, 1400, 30
+);
+insert into emp
+values(
+ 7844, 'TURNER', 'SALESMAN', 7698,
+ '1981-9-8',
+ 1500, 0, 30
+);
+insert into emp
+values(
+ 7876, 'ADAMS', 'CLERK', 7788,
+ '87-JUL-19',
+ 1100, null, 20
+);
+insert into emp
+values(
+ 7900, 'JAMES', 'CLERK', 7698,
+ '1981-12-3',
+ 950, null, 30
+);
+insert into emp
+values(
+ 7934, 'MILLER', 'CLERK', 7782,
+ '1982-1-23',
+ 1300, null, 10
+);
+
+INSERT INTO EmployeeDetails 
+	(empno,  Mobile, PresentAddress, Area, City,Country,Qualification, Email)
+VALUES
+	(7839, '1234567879', '1 MAIN AVE', 'WA', 'TACOCA', 'USA', 'GRADUATE','chinxyz@emp.com'),
+	(7698,  '2152313213', 'B BLOCK NICE STREET', 'WENEN', 'TACOCA', 'SCODD', 'GRADUATE','mike230@emample.com'),
+	(7521,  '4517825469', 'UNIVERSAL NEW AVE', 'BOURNNILE', 'BRISDON', 'NEW START','MANAGEMENT','greenden3939@emample.com'),
+	(7934, '5741115523', 'SPACE1 OF 1', 'ANDALUSIAN', 'PARALLEL', 'NEW RIVER', 
+	    'MATHEMATICS','dpaul_lime44@emample.com'),
+	(7900,  '4755#55522', 'NOT KNOWN', 'WOODOO', 'COMMONS', 'UNITED KINGDOM', 
+	    'ADVANCE PHYSICS','matts-ino33@emample.com'),
+	(7844,  '5124785452', 'TUCSON, AZ MSA', 'ALPINE', 'ARIZONA', 'USA', 
+	    'DIPLOMA IN FINANCE','plaoto_nk984@emample.com')
