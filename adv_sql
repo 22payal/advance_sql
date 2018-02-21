@@ -8,7 +8,7 @@ Exercises:
        DELIMITER //
         CREATE PROCEDURE  `update_sal`(IN amount decimal(7,2)) 
         BEGIN
-         UPDATE emp SET sal = sal+amount where job = 'salesman';
+         UPDATE emp SET sal = sal+100 where deptno = ( SELECT deptno FROM dept WHERE dname = “SALES”) ;
          END ;
           //
           DELIMITER ;
